@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> {{ book.name }} </ion-title>
+    <ion-badge style="margin-right: 10px;" slot="end"> {{ book.stocks }} </ion-badge>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <img [src]="book.image" />
+    <ion-card-header>
+      <ion-card-subtitle>Author</ion-card-subtitle>
+      <ion-card-title>{{ book.author }} </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ book.summary }}
+    </ion-card-content>
+    <ion-card-content>
+      <ion-button [disabled]="book.stocks === 0" (click)="borrow(book)" expand="block" color="warning">
+        Borrow
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
